@@ -22,7 +22,9 @@ public class FileManager {
             URL url = new URL(imageUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
+            // input stream to download the image data
             InputStream inputStream = connection.getInputStream();
+            //The image data is stored as an array of bytes using the readAllBytes() method of InputStream class
             byte[] imageData = inputStream.readAllBytes();
             String fileName = FileManager.getUniqueFileName();
             File directory = new File("data");
@@ -34,6 +36,7 @@ public class FileManager {
                 System.out.println("Image file already exists: " + fileName);
                 return;
             }
+            //output stream used to write the image data to a file in the data directory
             FileOutputStream outputStream = new FileOutputStream(imageFile);
             outputStream.write(imageData);
             outputStream.close();
