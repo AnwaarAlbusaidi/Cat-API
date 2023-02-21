@@ -8,9 +8,14 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
-
+/**
+ A class that interacts with the Cat API to fetch cat images.
+ */
 public class CatApi {
-
+    /**
+     * Fetches a cat image from the Cat API and saves it to a file in the data directory.
+     * @throws RuntimeException if an error occurs while fetching or saving the image.
+     */
     public void getCatImage()
     {
         FileManager writeToFile = new FileManager();
